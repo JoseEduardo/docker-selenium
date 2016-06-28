@@ -13,7 +13,7 @@ For pull requests or local commits:
 
 For repository owners only:
 
-    git commit -m "Upgrade Chrome stable patch 51.0.2704.106"
+    git commit -m "Add docker-compose support #108"
     git tag -d latest #tag latest will be updated from TravisCI
     git tag 2.53.0t && git push origin tmp-2.53.0t && git push --tags
 

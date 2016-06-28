@@ -69,6 +69,13 @@ Shutdown gracefully
     docker exec grid stop
     docker stop grid
 
+Shutdown immediately, no mercy
+
+    docker rm -vf grid
+
+### Docker Compose
+See [docker-compose](./docs/docker-compose.md)
+
 ### Parallel
 This image is designed to run one test on each docker container but if you still want to run multiple tests in parallel on the same container you can still do so by increasing `MAX_INSTANCES` and `MAX_SESSIONS` which now [defaults](https://github.com/elgalu/docker-selenium/blob/2.53.0k/Dockerfile#L949) to 1.
 
@@ -79,7 +86,7 @@ This image is designed to run one test on each docker container but if you still
 
 The drawback is that all tests will run on the same desktop meaning the video recording will only capture the browser in the foreground but it's in the roadmap to make all this transparent, see issues [#78](https://github.com/elgalu/docker-selenium/issues/78) and [#77](https://github.com/elgalu/docker-selenium/issues/77).
 
-Another problem with increasing `MAX_INSTANCES` & `MAX_SESSIONS` is focus issues. So if you don't need video recording you can use the official docker selenium grid to scale up/down via docker-compose, see for example [this blog post](http://carlosbecker.com/posts/selenium-grid-docker-compose)
+Another problem with increasing `MAX_INSTANCES` & `MAX_SESSIONS` is focus issues. So in this case is better scale up/down via [docker-compose](./docs/docker-compose.md), or by using the official repo also, see for example [this blog post](http://carlosbecker.com/posts/selenium-grid-docker-compose)
 
 ### OSX
 If you are in Mac, you need to get the correct IP of the docker machine. One of these two commands should work to get it:
